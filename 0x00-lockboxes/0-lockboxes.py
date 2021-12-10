@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 def canUnlockAll(boxes):
+    """ Function to know if all the boxes can be unlocked"""
     keys = set()
     for next_key, box in enumerate(boxes):
         next_key += 1
