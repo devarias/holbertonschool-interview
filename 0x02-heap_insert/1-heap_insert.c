@@ -18,9 +18,9 @@ heap_t *heap_insert(heap_t **root, int value)
 		return (*root);
 	}
 	height = tree_height(*root);
-	for (h = 0; h <= height; h++)
+	for (level = 0; level <= height; level++)
 	{
-		new_node = add_node(*root, h, value);
+		new_node = add_node(*root, level, value);
 		if (new_node)
 			break;
 	}
@@ -44,7 +44,7 @@ int tree_height(heap_t *tree)
 {
 	int l_height, r_height;
 
-	if (!tree || !is_leaf(tree))
+	if (!tree || is_leaf(tree) == 1)
 		return (0);
 
 	l_height = tree_height(tree->left) + 1;
@@ -59,13 +59,13 @@ int tree_height(heap_t *tree)
 * is_leaf - verify if a node is a leaf
 * @node: node to check
 *
-* Return: 1 if is a leaf, NULL on failure
+* Return: 1 if is a leaf, otherwise 0
 */
 int is_leaf(heap_t *node)
 {
 	if (!node->left && !node->right)
 		return (1);
-	return (NULL);
+	return (0);
 }
 
 /**
