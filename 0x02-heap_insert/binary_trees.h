@@ -30,5 +30,9 @@ void binary_tree_print(const binary_tree_t *);
 
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 heap_t *heap_insert(heap_t **root, int value);
+int tree_height(heap_t *tree);
+int is_leaf(heap_t *node);
+binary_tree_t *add_node(binary_tree_t *tree, int level, int value);
+int tree_depth(const binary_tree_t *tree);
 
 #endif /* _BINARY_H */
