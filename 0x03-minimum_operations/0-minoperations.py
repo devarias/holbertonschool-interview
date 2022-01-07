@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 import math
-"""module comment"""
+"""
+module comment
+"""
 
 
 def minOperations(n):
