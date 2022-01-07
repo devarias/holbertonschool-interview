@@ -13,6 +13,3 @@ def minOperations(n):
                 res += i
                 n //= i
     return res + n if n > 1 else res
-
-n = 12
-print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
