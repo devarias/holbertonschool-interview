@@ -11,8 +11,6 @@ def handleTen(statCount, fileSize):
         print("{}: {}".format(key, statCount[key]))
 
 
-
-
 def log_parsing():
     """function docs"""
     c = size = 0
