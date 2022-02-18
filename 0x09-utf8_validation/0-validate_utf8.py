@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+""" module docs """
+
+
 def validUTF8(data):
     """ method docs """
     c = 0
