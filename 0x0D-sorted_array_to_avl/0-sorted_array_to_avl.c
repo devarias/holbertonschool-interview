@@ -8,7 +8,7 @@
  */
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
-	return !array ? NULL : insert_AVL_node(NULL, array, 0, (int)size - 1);
+	return (!array ? NULL : insert_AVL_node(NULL, array, 0, (int)size - 1));
 }
 
 /**
