@@ -23,6 +23,7 @@ avl_t *insert_AVL_node(avl_t *parent, int *array, int start, int end)
 {
     size_t mid;
     avl_t *root = NULL;
+
     if (start > end)
         return (NULL);
     mid = (start + end) / 2;
