@@ -3,7 +3,7 @@
  * print_found - print message
  * @first_idx: first_idx
  * @second_idx: second_idx
- * @last: know if the last one in express line
+ * @end: know if the last one in express line
  *
  * Return: nothing
  */
