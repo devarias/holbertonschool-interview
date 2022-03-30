@@ -1,21 +1,21 @@
 #include "search.h"
 /**
  * print_found - print message
- * @first_idx: first_idx
- * @second_idx: second_idx
+ * @f_idx: first_idx
+ * @s_idx: second_idx
  * @end: know if the last one in express line
  *
  * Return: nothing
  */
-void print_found(size_t first_idx, size_t second_idx, skiplist_t *end)
+void print_found(size_t f_idx, size_t s_idx, skiplist_t *end)
 {
 	if (end != NULL)
 	{
 		while (end->next != NULL)
 			end = end->next;
-		second_idx = end->index;
+		s_idx = end->index;
 	}
-	printf("Value found between indexes [%lu] and [%lu]\n", first_idx, second_idx);
+	printf("Value found between indexes [%lu] and [%lu]\n", f_idx, s_idx);
 }
 /**
  * print_check - print message
