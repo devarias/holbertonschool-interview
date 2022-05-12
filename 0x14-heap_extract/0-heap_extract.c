@@ -36,7 +36,7 @@ heap_t *swap(heap_t *node_a, heap_t *node_b)
  */
 heap_t *get_node(heap_t *root, int size)
 {
-	int b_idx, mask  = 0;
+	int b_idx, mask = 0;
 
 	for (; 1 << (b_idx + 1) <= size; b_idx++)
 		;
@@ -70,7 +70,7 @@ void heapify(heap_t *root)
 		if (root->left && root->left->n > root->n)
 			max = root->left;
 		if (root->right && root->right->n > root->n &&
-				(max && root->right->n > max->n))
+			(max && root->right->n > max->n))
 			max = root->right;
 		if (max)
 			root = swap(max, root);
