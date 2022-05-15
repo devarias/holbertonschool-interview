@@ -1,11 +1,10 @@
-#ifndef HOLBERTON_H
-#define HOLBERTON_H
+#ifndef _HOLBERTON_H_
+#define _HOLBERTON_H_
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
 
 int _putchar(char c);
 
-void printResult(char *arr, int length);
-int string_length(char *pointer);
-void multiply(char *n1, int n1L, char *n2, int n2L, char *res);
-void reverse(char arr[], int n);
-
-#endif
+#endif /* _HOLBERTON_H_ */
