@@ -1,131 +1,89 @@
 #include "holberton.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
- * _puts - Prints a string
- *
- * @s: string to print
+ * _isdigit - check if a string is a digit
+ * Description - This function is to check if a string is a digit
+ * @n: Sring to guess if is an uppercase character
+ * Return: 1 if n is a digit, 0 otherwise
  */
-
-void _puts(char *s)
+int _isdigit(char *n)
 {
-	while (*s)
-		_putchar(*s++);
-	_putchar('\n');
-}
+	int i;
 
-/**
- * exit98 - Exits with status code 98
- */
-
-void exit98(void)
-{
-	_puts("Error");
-	exit(98);
-}
-
-/**
- * _atoi - converts a number in a string to an int
- *
- * @s: string containing the number to convert
- *
- * Return: an int
- */
-
-long _atoi(char *s)
-{
-	int i = 0, sign = 0;
-	long res = 0;
-
-	while (s[i] && (!(s[i] >= '0') || !(s[i] <= '9')))
+	i = 0;
+	while (*(n + i) != '\0')
 	{
-		if (s[i] == '-')
-			sign++;
+		if (*(n + i) < '0' || *(n + i) > '9')
+			return (0);
 		i++;
 	}
-	sign = (sign % 2) ? -1 : 1;
-	while (s[i] && ((s[i] >= '0') && (s[i] <= '9')))
-		res = res * 10 + (s[i++] - '0') * sign;
-	return (res);
+	return (1);
 }
 
 /**
- * _isnumber - Checks if a string is a number
- *
- * @s: a string
- *
- * Return: length if number is valid, exit if not
+ * _strlen - Return the len of a string
+ * Description: This function shows the length of a given string
+ * @s: Pointer that contains the string
+ * Return: @s len
  */
-
-int _isnumber(char *s)
-{
-	int i = 0;
-
-	if (!s)
-		exit98();
-
-	while (s[i])
-	{
-		if (s[i] >= '0' && s[i] <= '9')
-			i++;
-		else
-			exit98();
-	}
-
-	return (i);
-}
-
-/**
- * _strlen  - Returns the length of a string s
- *
- * @s: pointer to a string
- *
- * Return: the length of string s
- */
-
-int _strlen(char *s)
+int _strlen(const char *s)
 {
 	int len = 0;
 
-	if (s)
+	while (*s != '\0')
 	{
-		while (s[len])
-			len++;
-		return (len);
+		len++;
+		s++;
 	}
-
-	return (0);
+	return (len);
 }
 
 /**
- * main - Entry point. Multiplies 2 nums and prints the result
- *
- * I lost plenty enough braincells trying to do it the first time
- * during the foundations. All you'll get is this lousy attempt, because
- * a) I'll never have to do anything like this ever again,
- * b) I never actually WANT to do this ever again, and
- * c) because if I am ever asked to do this again, I might actually
- * consider exiling myself to a remote desert island.
- *
- * @argc: number of arguments
- * @argv: value of arguments
- *
- * Return: 0 if success.
+ * main - the entry point
+ * @argc: Number of arguments
+ * @argv: Arguments to multiply
+ * Return: return 0, 98 otherwise and prints Error
  */
-
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	char *num1 = argv[1], *num2 = argv[2];
+	int p, res, len, n1, n2, i, j;
+	int *total;
 
-	if (argc != 3 || !_isnumber(num1) || !_isnumber(num2))
-		exit98();
-
-	if (_strlen(num1) < 10 && _strlen(num2) < 10)
+	if (argc < 3 || argc > 3 || !(_isdigit(argv[1])) || !(_isdigit(argv[2])))
+		puts("Error"), exit(98);
+	if (argv[1][0] == '0' || argv[2][0] == '0')
 	{
-		printf("%ld\n", _atoi(num1) * _atoi(num2));
+		printf("0\n");
 		return (0);
 	}
-
+	n1 = _strlen(argv[1]), n2 = _strlen(argv[2]);
+	len = n1 + n2;
+	total = calloc(len, sizeof(int *));
+	if (total == NULL)
+		puts("Error"), exit(98);
+	for (i = (n2 - 1); i > -1; i--)
+	{
+		res = 0;
+		for (j = (n1 - 1); j > -1; j--)
+		{
+			p = (argv[2][i] - '0') * (argv[1][j] - '0');
+			res = (p / 10);
+			total[(i + j) + 1] += (p % 10);
+			if (total[(i + j) + 1] > 9)
+			{
+				total[i + j] += total[(i + j) + 1] / 10;
+				total[(i + j) + 1] = total[(i + j) + 1] % 10;
+			}
+			total[(i + j)] += res;
+		}
+	}
+	if (total[0] == 0)
+		i = 1;
+	else
+		i = 0;
+	for (; i < len; i++)
+		printf("%d", total[i]);
+	printf("\n");
+	free(total);
 	return (0);
 }
