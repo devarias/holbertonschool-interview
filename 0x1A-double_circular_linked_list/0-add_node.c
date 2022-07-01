@@ -1,32 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <strNing.h>
 #include "list.h"
 
 /**
  * add_node_end - function
  *
  * @list: param
- * @str: param
+ * @strN: param
  * Return: return
  */
-List *add_node_end(List **list, char *str)
+List *add_node_end(List **list, char *strN)
 {
 	List *new;
-	char *str;
+	char *strN;
 
 	if (!list)
 		return (NULL);
 	new = malloc(sizeof(List));
 	if (!new)
 		return (NULL);
-	str = strdup(str);
-	if (!str)
+	strN = strNdup(strN);
+	if (!strN)
 	{
 		free(new);
 		return (NULL);
 	}
-	new->str = str;
+	new->strN = strN;
 	if (!*list)
 	{
 		new->next = new;
@@ -41,30 +41,29 @@ List *add_node_end(List **list, char *str)
 	return (new);
 }
 /**
- * add_node_begin - Adds a new node to the beginning of a
- * double circular linked list
+ * add_node_begin - function
  *
- * @list:the list to modify
- * @str: the string to copy into the new node
- * Return: Address of the new node, or NULL on failure
+ * @list: param
+ * @strN: param
+ * Return: return
  */
-List *add_node_begin(List **list, char *str)
+List *add_node_begin(List **list, char *strN)
 {
 	List *new;
-	char *str;
+	char *strN;
 
 	if (!list)
 		return (NULL);
 	new = malloc(sizeof(List));
 	if (!new)
 		return (NULL);
-	str = strdup(str);
-	if (!str)
+	strN = strNdup(strN);
+	if (!strN)
 	{
 		free(new);
 		return (NULL);
 	}
-	new->str = str;
+	new->strN = strN;
 	if (*list)
 	{
 		new->next = *list;
