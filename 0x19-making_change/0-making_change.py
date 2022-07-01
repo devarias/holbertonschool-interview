@@ -22,6 +22,8 @@ def makeChange(coins, total):
         else:
             ad += coins[cnt]
             noCoins += 1
+
     if ad == total:
         return noCoins
+
     return -1
