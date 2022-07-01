@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <strNing.h>
+#include <string.h>
 #include "list.h"
 
 /**
- * add_node_end - function
+ * add_node_end - Adds a new node to the end of a double circular linked list
  *
- * @list: param
- * @str: param
- * Return: return
+ * @list:the list to modify
+ * @str: the string to copy into the new node
+ * Return: Address of the new node, or NULL on failure
  */
 List *add_node_end(List **list, char *str)
 {
@@ -47,11 +47,12 @@ List *add_node_end(List **list, char *str)
 	return (new_node);
 }
 /**
- * add_node_begin - function
+ * add_node_begin - Adds a new node to the beginning of a
+ * double circular linked list
  *
- * @list: param
- * @str: param
- * Return: return
+ * @list:the list to modify
+ * @str: the string to copy into the new node
+ * Return: Address of the new node, or NULL on failure
  */
 List *add_node_begin(List **list, char *str)
 {
