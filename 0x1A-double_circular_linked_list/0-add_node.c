@@ -6,9 +6,9 @@
 /**
  * add_node_end - Adds a new node to the end of a double circular linked list
  *
- * @list:the list to modify
- * @str: the string to copy into the new node
- * Return: Address of the new node, or NULL on failure
+ * @list:param
+ * @str: param
+ * Return: return
  */
 List *add_node_end(List **list, char *str)
 {
@@ -47,12 +47,11 @@ List *add_node_end(List **list, char *str)
 	return (new_node);
 }
 /**
- * add_node_begin - Adds a new node to the beginning of a
- * double circular linked list
+ * add_node_begin - function
  *
- * @list:the list to modify
- * @str: the string to copy into the new node
- * Return: Address of the new node, or NULL on failure
+ * @list:param
+ * @str: param
+ * Return: return
  */
 List *add_node_begin(List **list, char *str)
 {
