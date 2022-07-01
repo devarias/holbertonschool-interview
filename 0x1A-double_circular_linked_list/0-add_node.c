@@ -7,10 +7,10 @@
  * add_node_end - function
  *
  * @list: param
- * @strN: param
+ * @str: param
  * Return: return
  */
-List *add_node_end(List **list, char *strN)
+List *add_node_end(List **list, char *str)
 {
 	List *new;
 	char *strN;
@@ -20,13 +20,13 @@ List *add_node_end(List **list, char *strN)
 	new = malloc(sizeof(List));
 	if (!new)
 		return (NULL);
-	strN = strNdup(strN);
+	strN = strNdup(str);
 	if (!strN)
 	{
 		free(new);
 		return (NULL);
 	}
-	new->strN = strN;
+	new->str = strN;
 	if (!*list)
 	{
 		new->next = new;
@@ -44,10 +44,10 @@ List *add_node_end(List **list, char *strN)
  * add_node_begin - function
  *
  * @list: param
- * @strN: param
+ * @str: param
  * Return: return
  */
-List *add_node_begin(List **list, char *strN)
+List *add_node_begin(List **list, char *str)
 {
 	List *new;
 	char *strN;
@@ -57,13 +57,13 @@ List *add_node_begin(List **list, char *strN)
 	new = malloc(sizeof(List));
 	if (!new)
 		return (NULL);
-	strN = strNdup(strN);
+	strN = strNdup(str);
 	if (!strN)
 	{
 		free(new);
 		return (NULL);
 	}
-	new->strN = strN;
+	new->str = strN;
 	if (*list)
 	{
 		new->next = *list;
